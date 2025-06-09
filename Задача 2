@@ -1,0 +1,29 @@
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace П411_C___
+{
+    internal class Program
+    {
+        static int CheckNumber(int number)
+        {
+            if (number < 0)
+            {
+                Console.WriteLine("Ваше число отрицательное");
+            }
+            else if (number > 0)
+            { Console.WriteLine("Ваше число положительное"); }
+            else if (number == 0) { Console.WriteLine("Ваше число равно нулю"); }
+            return number;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите число:\n");
+            int number = int.Parse(Console.ReadLine());
+            int area = CheckNumber(number);
+        }
+    }
+}
