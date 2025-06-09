@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace П411_C___
+{
+    internal class Program
+    {
+       
+        static Random random = new Random();
+
+        public static (string name1, string name2) GenerateRandomQuest()
+        {
+            List<string> names1 = new List<string>()
+            {
+                "Ара",
+                "Да",
+                "Ин",
+                "Фар"
+            };
+            List<string> names2 = new List<string>()
+            {
+                "он",
+                "га",
+                "ыр",
+                "ка"
+            };
+            string name1 = names1[random.Next(names1.Count)];
+            string name2 = names2[random.Next(names2.Count)];
+
+            return (name1, name2);
+        }
+
+        static void Main(string[] args)
+        {
+            var names = GenerateRandomQuest();
+            Console.WriteLine($"Новое имя: {names.name1}{names.name2}");
+
+        }
+    }
+}
