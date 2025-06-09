@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace П411_C___
+{
+    internal class Program
+    {
+        static Random random = new Random();
+
+        public static (string goal, string reward, string difficulty) GenerateRandomQuest()
+        {
+            List<string> goals = new List<string>()
+            {
+                "Убить дракона",
+                "Найти принцессу",
+                "Доставить посылку",
+                "Собрать редкие травы"
+            };
+
+            List<string> rewards = new List<string>()
+            {
+                "100 золота",
+                "2 серебра",
+                "Удар по лицу",
+                "Титул героя"
+            };
+
+            List<string> difficulties = new List<string>()
+            {
+                "Легко",
+                "Сложно",
+                "Невозможно",
+                "Легендарно"
+            };
+
+            string goal = goals[random.Next(goals.Count)];
+            string reward = rewards[random.Next(rewards.Count)];
+            string difficulty = difficulties[random.Next(difficulties.Count)];
+
+            return (goal, reward, difficulty);
+        }        
+        static void Main(string[] args)
+        {
+            var quest = GenerateRandomQuest();
+            Console.WriteLine("Квеcт! ");
+            Console.WriteLine($"Цель - {quest.goal}");
+            Console.WriteLine($"Награда - {quest.reward}");
+            Console.WriteLine($"Сложность - {quest.difficulty}");
+
+        }
+    }
+}
